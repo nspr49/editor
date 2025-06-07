@@ -35,9 +35,9 @@ fn render(frame: &mut Frame) {
 
 fn main() {
     let args = Args::parse();
-    let buffer = parse::parse(args.filename);
+    let buffer = parse::parse(&args.filename);
     let terminal = ratatui::init();
-    let app_result = App::new(buffer).run(terminal);
+    let app_result = App::new(buffer, args.filename).run(terminal);
     ratatui::restore();
     app_result
 }

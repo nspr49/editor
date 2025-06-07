@@ -2,9 +2,9 @@ use std::fs;
 
 use super::buffer::Buffer;
 
-pub fn parse(file_name: String) -> Buffer {
+pub fn parse(file_name: &String) -> Buffer {
     let mut buffer = Buffer::empty_buffer();
-    let file_res = fs::read_to_string(&file_name);
+    let file_res = fs::read_to_string(file_name);
     let file_content = match file_res {
         Ok(content) => content,
         Err(_) => {
